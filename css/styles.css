@@ -1,0 +1,866 @@
+/* Палітра сторінок. */
+
+:root {
+  --primary-bg-color: #fff;
+  --secondary-bg-color: #f5f4fa;
+  --primary-txt-color: #212121;
+  --secondary-txt-color: #757575;
+  --nav-bottom-line: #ececec;
+  --primary-icons-color: #afb1b8;
+  --portfolio-card-border: #eee;
+  --accent-color: #2196f3;
+  --accent-color-overlay: rgba(33, 150, 243, 0.9);
+  --active-btn-color: #188ce8;
+  --hero-footer-bg-color: #2f303a;
+  --hero-bg-color: #c4c4c4;
+  --hero-bg-overlay: rgba(47, 48, 58, 0.4);
+  --logo-nav-color: #000;
+  --contact-text-footer: rgba(255, 255, 255, 0.6);
+  --social-bg-footer: rgba(255, 255, 255, 0.1);
+  --box-shadow-color1: rgba(0, 0, 0, 0.12);
+  --box-shadow-color2: rgba(0, 0, 0, 0.14);
+  --box-shadow-color3: rgba(0, 0, 0, 0.2);
+  --box-shadow-color4: rgba(0, 0, 0, 0.15);
+  --box-shadow-color5: rgba(0, 0, 0, 0.1);
+  --box-shadow-color6: rgba(0, 0, 0, 0.08);
+  --work-label-overlay: rgba(47, 48, 58, 0.8);
+  --animation-time: 250ms;
+  --animation-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Стилі, загальні для усіх елементів. */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+p,
+figure {
+  margin: 0;
+}
+
+ul {
+  padding-left: 0;
+}
+
+body {
+  /* Typografy */
+  font-family: Roboto, sans-serif;
+  letter-spacing: 0.03em;
+
+  /* Visual */
+  background-color: var(--primary-bg-color);
+  color: var(--primary-txt-color);
+}
+
+/* Загальний стиль для контейнеру */
+
+.container {
+  width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+/* Загальні стилі для списків та посилань. */
+
+.list {
+  /* Box model */
+  padding: 0;
+  margin: 0;
+
+  /* Visual */
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.icon {
+  fill: currentColor;
+}
+
+.no-gap {
+  display: block;
+}
+
+/* Верхня лінія навігації. */
+.page-header {
+  position: relative;
+}
+
+.page-header::after {
+  position: absolute;
+  bottom: 0;
+  content: '';
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--nav-bottom-line);
+}
+
+/* Стилізація верхньої навігації. */
+
+.main-nav,
+.menu-nav {
+  display: flex;
+  align-items: center;
+}
+
+/* Стилізація логотипу. */
+
+.logo {
+  /* Box model */
+  /* display: block; */
+
+  /* Typografy */
+  font-family: Raleway, sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.19;
+  letter-spacing: 0.03em;
+
+  /* Visual */
+  color: var(--accent-color);
+}
+
+.menu-nav .logo {
+  padding: 24px 0 25px;
+}
+
+.logo:hover,
+.logo:focus {
+  color: var(--accent-color);
+}
+
+.logo .logo-nav {
+  color: var(--logo-nav-color);
+}
+
+.logo .logo-footer {
+  color: var(--primary-bg-color);
+}
+
+/* Стилізація верхньої навігації. */
+
+.site-nav {
+  display: flex;
+  margin-left: 93px;
+}
+
+.site-nav .item + .item {
+  margin-left: 50px;
+}
+
+.site-nav .link,
+.contact-nav .link {
+  /* Box model */
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
+  /* Typografy */
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+
+  /* Visual */
+  color: var(--primary-txt-color);
+
+  transition: color var(--animation-time) var(--animation-function);
+}
+
+.site-nav .link.current {
+  position: relative;
+  color: var(--accent-color);
+}
+
+.current::after {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+}
+
+/* Загальний колір елементів контактів у навігації і тексту абзацу.
+   Стилізацію контактів зроблено за допомогою правила, що розташовано нижче. */
+
+.contact-nav {
+  display: flex;
+  margin-left: auto;
+}
+
+.contact-nav .item + .item {
+  margin-left: 50px;
+}
+
+.contact-nav .link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* .contact-nav .icon { */
+/* fill: var(--secondary-txt-color); */
+/* fill: currentColor; */
+/* } */
+
+.icon-mail {
+  width: 16px;
+  height: 12px;
+}
+
+.icon-phone {
+  width: 10px;
+  height: 16px;
+}
+
+.contact-nav .link,
+.text {
+  color: var(--secondary-txt-color);
+}
+
+/* .contact-nav .link:hover .icon,
+.contact-nav .link:focus .icon {
+  fill: var(--accent-color);
+} */
+
+/* Загальний фон для героя і підвалу. */
+
+.hero,
+.page-footer {
+  background-color: var(--hero-footer-bg-color);
+}
+
+/* Окремий стиль логотипу у футері. */
+
+.page-footer .logo {
+  display: block;
+  width: 145px;
+  margin-bottom: 20px;
+}
+
+/* Стиль для секції "герой". */
+
+.hero {
+  /* Box model */
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 200px 0;
+
+  /* Typography */
+  text-align: center;
+
+  /* Visual */
+  background-color: var(--hero-bg-color);
+  background-image: linear-gradient(to right, var(--hero-bg-overlay), var(--hero-bg-overlay)),
+    url('../images/hero-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Загальний стиль для секцій. */
+
+.section {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.section.work {
+  padding-top: 0;
+}
+
+/* Стиль для секції "Особливості". */
+
+.feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.feature-list .item {
+  width: calc((100% - 3 * 30px) / 4);
+}
+
+.feature-list .feature-img {
+  display: flex;
+  height: 120px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  background-color: var(--secondary-bg-color);
+  justify-content: center;
+}
+
+.feature-list .feature-img .icon {
+  width: 70px;
+}
+
+/* Стилі для секції "Наша робота". */
+
+.work-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.work-list .item {
+  position: relative;
+}
+
+.work-list .item .subtitle {
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+  padding-top: 27px;
+  padding-bottom: 27px;
+
+  background-color: var(--work-label-overlay);
+  color: var(--primary-bg-color);
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Загальна стилізація заголовків h1 сторінок. */
+
+.hero-title,
+.portfolio-title {
+  /* Box model */
+  max-width: 696px;
+  margin: 0 auto 30px;
+
+  /* Typografy */
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.36;
+  letter-spacing: 0.06em;
+
+  /* text-align: center; */
+  text-transform: uppercase;
+}
+
+/* Окремий колір заголовку h1 для героя. */
+
+.hero-title {
+  color: var(--primary-bg-color);
+}
+
+/* Стилізація заголовків h2 і h3 */
+
+.section-title,
+.subtitle {
+  color: var(--primary-txt-color);
+}
+
+.section-title {
+  /* Box model */
+  margin-top: 0;
+  margin-bottom: 50px;
+
+  /* Typografy */
+  font-size: 36px;
+  line-height: 1.17;
+  text-align: center;
+}
+
+/* Стилізація заголовків і тексту для блока "Особливості". */
+
+.feature-list .subtitle {
+  /* Box model */
+  margin-top: 0;
+  margin-bottom: 10px;
+
+  /* Typografy */
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+}
+
+.feature-list .text {
+  /* Box model */
+  margin-top: 0;
+  margin-bottom: 0;
+
+  /* Typografy */
+  font-size: 14px;
+  line-height: 1.71;
+}
+
+/* Окрема стилізація блоку "Наша команда". */
+.team {
+  background-color: var(--secondary-bg-color);
+}
+
+.team-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.team-list .item {
+  /* Box model */
+  width: 270px;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0px 1px 3px var(--box-shadow-color1), 0px 1px 1px var(--box-shadow-color2),
+    0px 2px 1px var(--box-shadow-color3);
+
+  /* Typografy */
+  text-align: center;
+  /* Visual */
+  background-color: var(--primary-bg-color);
+}
+
+.team-list .content {
+  padding: 30px 0;
+}
+
+.team-list .subtitle {
+  /* Box model */
+  margin-top: 0;
+  margin-bottom: 10px;
+
+  /* Typografy */
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
+}
+
+.team-list .text {
+  /* Box model */
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.social-list {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-list .link {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color var(--animation-time) var(--animation-function);
+}
+
+.social-list .icon {
+  width: 20px;
+  fill: var(--primary-icons-color);
+  transition: fill var(--animation-time) var(--animation-function);
+}
+
+.social-list .link:hover,
+.social-list .link:focus {
+  background-color: var(--accent-color);
+}
+
+.social-list .link:hover .icon,
+.social-list .link:focus .icon {
+  fill: var(--primary-bg-color);
+}
+
+/* Стилізація списку клієнтів. */
+
+.clients-list {
+  display: flex;
+  gap: 30px;
+}
+
+.clients-list .link {
+  display: flex;
+  justify-content: center;
+  width: 170px;
+  height: 92px;
+  border: 1px solid var(--primary-icons-color);
+  border-radius: 4px;
+  color: var(--primary-icons-color);
+  transition: border var(--animation-time) var(--animation-function),
+    color var(--animation-time) var(--animation-function);
+}
+
+.clients-list .icon {
+  width: 106px;
+  transition: fill var(--animation-time) var(--animation-function);
+}
+
+.clients-list .link:hover,
+.clients-list .link:focus {
+  border: 1px solid var(--accent-color);
+}
+
+/* Стилізація списку фільтрації. */
+
+.filters-list {
+  /* width: 575px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  /* padding-bottom: 16px; */
+  margin: 0 auto 50px;
+}
+
+.filters-list .item {
+  /* margin-right: 8px; */
+  margin-bottom: 8px;
+}
+
+.filters-list .item:nth-child(5n) {
+  margin-right: 0;
+}
+
+.filters-list .item:nth-last-child(-n + 5) {
+  margin-bottom: 0;
+}
+
+/* Стилізація галереї портфоліо. */
+
+.gallery-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.gallery-list .item {
+  width: 370px;
+}
+
+.gallery-list .item .link {
+  display: block;
+  transition: box-shadow var(--animation-time) var(--animation-function);
+}
+
+.gallery-list .item .link:hover,
+.gallery-list .item .link:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+  color: inherit;
+}
+
+.gallery-list .subtitle {
+  /* Box model */
+  margin-top: 0;
+  margin-bottom: 4px;
+
+  /* Typografy */
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+}
+
+.gallery-list .text {
+  /* Box model */
+  margin-top: 0;
+  margin-bottom: 0;
+
+  /* Typografy */
+  font-size: 16px;
+  line-height: 1.88;
+}
+
+.gallery-list .content {
+  width: 100%;
+  border: 1px solid var(--portfolio-card-border);
+  border-top: 0;
+  padding: 20px 24px;
+}
+
+.gallery-list .thumb {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.gallery-list .thumb .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+
+  background-color: var(--accent-color-overlay);
+
+  transform: translateY(100%);
+  transition: transform var(--animation-time) var(--animation-function);
+}
+.gallery-list .link:hover .overlay,
+.gallery-list .link:focus .overlay {
+  transform: translateY(0);
+}
+
+.gallery-list .thumb .text {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--primary-bg-color);
+}
+
+/* Стилізація кнопки (герой) та
+   кнопок фільтру. */
+
+/* Загальний стиль для курсору */
+
+.btn,
+.filter {
+  /* Box model */
+  display: inline-block;
+  border: 0;
+  border-radius: 4px;
+
+  /* Typografy */
+  font-family: inherit;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+
+/* Окремий стиль кнопки (герой). */
+
+.btn {
+  /* Box model */
+  min-width: 216px;
+  padding: 10px 0;
+
+  /* Typografy */
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+
+  /* Visual */
+  color: var(--primary-bg-color);
+  background-color: var(--accent-color);
+
+  transition: background-color var(--animation-time) var(--animation-function),
+    box-shadow var(--animation-time) var(--animation-function);
+}
+
+.btn:hover,
+.btn:focus {
+  box-shadow: 0px 4px 4px var(--box-shadow-color4);
+  background-color: var(--active-btn-color);
+}
+
+/* Окремий стиль кнопок фільтру. */
+
+.filters-list .filter {
+  /* Box model */
+  min-width: 73px;
+  max-width: 130px;
+  padding: 6px 22px;
+
+  /* Typografy */
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.62;
+
+  /* Visual */
+  color: var(--primary-txt-color);
+  background-color: var(--secondary-bg-color);
+
+  transition: background-color var(--animation-time) var(--animation-function),
+    box-shadow var(--animation-time) var(--animation-function),
+    color var(--animation-time) var(--animation-function);
+}
+
+.filters-list .filter:hover,
+.filters-list .filter:focus {
+  box-shadow: 0px 3px 1px var(--box-shadow-color5), 0px 1px 2px var(--box-shadow-color6),
+    0px 2px 2px var(--box-shadow-color1);
+
+  color: var(--primary-bg-color);
+  background-color: var(--accent-color);
+}
+
+/* Стиль для підвалу. */
+
+.page-footer {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.footer-flex {
+  display: flex;
+  gap: 70px;
+}
+
+.footer-flex .contacts {
+  width: 230px;
+}
+
+/* Стилізація елементів-контактів у підвалі. */
+
+.contact-footer .item {
+  margin-bottom: 9px;
+}
+
+.contact-footer .item:last-child {
+  margin-bottom: 0;
+}
+
+.contact-footer .link {
+  /* Typografy */
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.71;
+
+  /* Visual */
+  color: var(--contact-text-footer);
+
+  transition: color var(--animation-time) var(--animation-function);
+}
+
+.contact-footer .light {
+  color: var(--primary-bg-color);
+}
+
+.socials-footer {
+  padding-top: 12px;
+}
+
+.socials-footer .section-title {
+  margin-bottom: 20px;
+
+  /* Typografy */
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: left;
+  color: var(--primary-bg-color);
+}
+
+.socials-footer .link {
+  background-color: var(--social-bg-footer);
+}
+
+.socials-footer .icon {
+  fill: var(--primary-bg-color);
+}
+
+.link:hover,
+.link:focus {
+  color: var(--accent-color);
+}
+
+/* Класи для модального вікна. */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--box-shadow-color3);
+
+  opacity: 1;
+
+  transition: opacity var(--animation-time) var(--animation-function);
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.4);
+  opacity: 0;
+}
+
+.modal {
+  /* Positioning */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  /* Box model */
+  display: flex;
+  justify-content: flex-end;
+  height: 528px;
+  width: 581px;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px var(--box-shadow-color1), 0px 1px 1px var(--box-shadow-color2),
+    0px 2px 1px var(--box-shadow-color3);
+  padding: 8px;
+
+  /* Visual */
+  background-color: var(--primary-bg-color);
+
+  /* Misc */
+  transform: perspective(1000px) translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transition: transform var(--animation-time) var(--animation-function),
+    opacity var(--animation-time) var(--animation-function);
+}
+
+.modal-close {
+  /* Box model */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--box-shadow-color5);
+  border-radius: 50%;
+
+  /* Visual */
+  background-color: var(--primary-bg-color);
+
+  /* Misc */
+  transition: background-color var(--animation-time) var(--animation-function),
+    color var(--animation-time) var(--animation-function),
+    border var(--animation-time) var(--animation-function);
+}
+
+.modal-close .icon {
+  width: 11px;
+  height: 11px;
+  transition: fill var(--animation-time) var(--animation-function);
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  border: 0;
+  box-shadow: none;
+
+  background-color: var(--accent-color);
+  color: var(--primary-bg-color);
+}
+
+/* Клас для приховання заголовків. */
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
