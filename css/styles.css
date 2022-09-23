@@ -828,6 +828,7 @@ body {
 
   /* Visual */
   background-color: var(--primary-bg-color);
+  cursor: pointer;
 
   /* Misc */
   transition: background-color var(--animation-time) var(--animation-function),
